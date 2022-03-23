@@ -132,3 +132,13 @@ delete system package repository tailscale
 commit comment "Remove Tailscale repository"
 save; exit
 ```
+
+## NOTES
+Taken from https://tky.io/2020/11/running-tailscale-on-a-ubiquiti-edgerouter/
+```
+router$ configure
+router# set service nat rule 5012 description Tailscale
+router# set service nat rule 5012 outbound-interface tailscale0
+router# set service nat rule 5012 protocol all
+router# set service nat rule 5012 type masquerade
+```
